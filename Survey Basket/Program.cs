@@ -1,4 +1,5 @@
 using Survey_Basket.Middleware;
+using Survey_Basket.Middleware.Survey_Basket.Middleware;
 
 namespace Survey_Basket
 {
@@ -11,6 +12,9 @@ namespace Survey_Basket
 
             builder.Services.AddDependencies(builder.Configuration);
 
+            
+            builder.Services.AddExceptionHandler<ExceptionHandler>();
+            builder.Services.AddProblemDetails();
             var app = builder.Build();
 
 
@@ -27,7 +31,7 @@ namespace Survey_Basket
 
             app.MapControllers();
 
-            app.UseMiddleware<ExceptionHandlingMiddleware>();
+            app.UseExceptionHandler();
 
             app.Run();
         }

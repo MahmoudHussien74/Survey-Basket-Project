@@ -355,3 +355,5 @@ D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\refint\Surve
 D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\Survey Basket.pdb
 D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\Survey Basket.genruntimeconfig.cache
 D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\ref\Survey Basket.dll
+D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\Survey Basket.sourcelink.json
+D:\Asp.Net\Asp.Net_Api\Survey Basket\Survey Basket\obj\Debug\net9.0\swae.build.ex.cache

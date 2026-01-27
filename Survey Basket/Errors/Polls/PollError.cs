@@ -8,6 +8,6 @@ namespace Survey_Basket.Errors.Polls
             new("Poll.NotFound", "No Poll was found with the given ID", StatusCodes.Status404NotFound);
 
         public static readonly Error DuplicatePollTitle =
-            new("Poll.DuplicatePollTitle", "Another Poll With the same title is already exists", StatusCodes.Status400BadRequest);
+            new("Poll.DuplicatePollTitle", "Another Poll With the same title is already exists", StatusCodes.Status409Conflict);
     }
 }

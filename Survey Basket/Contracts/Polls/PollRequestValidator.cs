@@ -4,11 +4,12 @@
     {
         public PollRequestValidator()
         {
-           
+
             RuleFor(x => x.Title)
                 .NotEmpty()
                 .Length(3, max: 100);
-
+                
+            
 
             RuleFor(x => x.Summary)
                 .NotEmpty()

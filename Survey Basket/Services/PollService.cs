@@ -29,6 +29,13 @@ namespace Survey_Basket.Services
 
         public async Task<Result<PollResponse>> AddAsync(PollRequest poll, CancellationToken cancellationToken = default)
         {
+            var IsExistsTitle = await _context.Polls
+                .AnyAsync(p => p.Title == poll.Title, cancellationToken);
+
+            if(IsExistsTitle)
+                return Result.Failure<PollResponse>(PollErrors.DuplicatePollTitle);
+
+
             await _context.Polls.AddAsync(poll.Adapt<Poll>(), cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
@@ -38,6 +45,15 @@ namespace Survey_Basket.Services
 
         public async Task<Result> UpdateAsync(int id, PollRequest poll, CancellationToken cancellationToken)
         {
+
+
+            var IsExistsTitle = await _context.Polls
+                .AnyAsync(p => p.Title == poll.Title &&p.Id !=id, cancellationToken);
+
+            if (IsExistsTitle)
+                return Result.Failure<PollResponse>(PollErrors.DuplicatePollTitle);
+
+
             var CurrentPoll = await _context.Polls.FindAsync(id, cancellationToken);
 
 

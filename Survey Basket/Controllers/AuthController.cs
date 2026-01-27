@@ -12,7 +12,7 @@
             var authResult = await _authService.GetTokenAsync(request.Email, request.Password, cancellationToken);
 
             return authResult.IsFailure ? BadRequest("Invalid Email / Password")
-                : Ok(authResult);
+                : Ok(authResult.Value);
 
         }
         [HttpPost("refresh")]
@@ -21,7 +21,7 @@
             var authResult = await _authService.GetRefreshTokenAsync(request.Token, request.RefreshToken, cancellationToken);
 
             return authResult.IsFailure ? BadRequest("Invalid token")
-                : Ok(authResult);
+                : Ok(authResult.Value);
 
         }
 

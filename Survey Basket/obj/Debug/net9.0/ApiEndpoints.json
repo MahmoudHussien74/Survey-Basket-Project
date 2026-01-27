@@ -95,6 +95,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Survey_Basket.Controllers.QuestionsController",
+    "Method": "GetAll",
+    "RelativePath": "api/polls/{PollId}/Questions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.QuestionsController",
+    "Method": "Add",
+    "RelativePath": "api/polls/{PollId}/Questions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Survey_Basket.Contracts.Questions.QuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.QuestionsController",
+    "Method": "Get",
+    "RelativePath": "api/polls/{PollId}/Questions/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Survey_Basket.Controllers.AuthController",
     "Method": "LoginAsync",
     "RelativePath": "Auth",

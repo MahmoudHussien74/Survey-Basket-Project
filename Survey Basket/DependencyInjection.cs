@@ -23,6 +23,7 @@
                     .AddMapsterConfiguration();
             
             services.AddScoped<IPollService, PollService>();
+            services.AddScoped<IQuestionService, QuestionService>();
             return services;
         }
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)

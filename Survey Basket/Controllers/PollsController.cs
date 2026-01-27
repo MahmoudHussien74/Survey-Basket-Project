@@ -1,9 +1,11 @@
-﻿using Survey_Basket.Abstractions;
+﻿using Microsoft.AspNetCore.Authorization;
+using Survey_Basket.Abstractions;
 
 namespace Survey_Basket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PollsController(IPollService pollService) : ControllerBase
     {
         private readonly IPollService _pollService = pollService;
@@ -32,9 +34,9 @@ namespace Survey_Basket.Controllers
 
 
             if (newpoll.IsFailure)
-                return NotFound();
+                return newpoll.ToProblem();
 
-            return CreatedAtAction(nameof(Get), new { id = newpoll.Value.Id }, newpoll);
+            return CreatedAtAction(nameof(Get), new { id = newpoll.Value.Id }, newpoll.Value);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PollRequest request, CancellationToken cancellationToken)
@@ -43,7 +45,7 @@ namespace Survey_Basket.Controllers
             var Isupdated = await _pollService.UpdateAsync(id, request, cancellationToken);
 
             if (Isupdated.IsFailure)
-                return NotFound();
+                return Isupdated.ToProblem();
 
             return NoContent();
         }
