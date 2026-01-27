@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\services\\iquestionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\services\\iquestionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\entities\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\entities\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuestionsController.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\QuestionsController.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Controllers\\QuestionsController.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\QuestionsController.cs",
+              "RelativeToolTip": "Survey Basket\\Controllers\\QuestionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T11:29:19.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Question.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Entities\\Question.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Entities\\Question.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Entities\\Question.cs",
+              "RelativeToolTip": "Survey Basket\\Entities\\Question.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T11:25:15.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IQuestionService.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IQuestionService.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Services\\IQuestionService.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IQuestionService.cs",
+              "RelativeToolTip": "Survey Basket\\Services\\IQuestionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T11:08:45.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuestionService.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\QuestionService.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Services\\QuestionService.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\QuestionService.cs",
+              "RelativeToolTip": "Survey Basket\\Services\\QuestionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T11:07:10.094Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

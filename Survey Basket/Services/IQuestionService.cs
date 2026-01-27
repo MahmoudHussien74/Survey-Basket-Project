@@ -10,6 +10,7 @@ namespace Survey_Basket.Services
         Task<Result<QuestionResponse>>GetAsync(int PollId,int id, CancellationToken CancellationToken=default);
         Task<Result> ToggleStatusAsync(int PollId,int id, CancellationToken CancellationToken=default);
 
+        Task<Result> UpdateAsync(int pollId, int id, QuestionRequest request, CancellationToken cancellationToken);
 
     }
 } 

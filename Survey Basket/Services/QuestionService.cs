@@ -96,5 +96,48 @@ namespace Survey_Basket.Services
                 await _context.SaveChangesAsync(CancellationToken);
                 return Result.Success();
         }
+
+        public async Task<Result> UpdateAsync(int pollId, int id, QuestionRequest request, CancellationToken cancellationToken)
+        {
+
+            var questionIsExsist = await _context.Questions
+                                                .AnyAsync(x => x.PollId == pollId
+                                                                  && x.Id != id
+                                                                  && x.Content == request.Content,
+                                                                  cancellationToken);
+
+
+            if (questionIsExsist)
+                return Result.Failure(QuestionErrors.DuplicateQuestionContent);
+
+            var question = await _context.Questions
+                                         .Include(x => x.Answers)
+                                         .SingleOrDefaultAsync(x => x.PollId == pollId && x.Id == id);
+
+            if (question is null)
+                return Result.Failure(QuestionErrors.QuestionNotfound);
+
+            question.Content = request.Content;
+
+            var cuurentAnswers = question.Answers.Select(x => x.Content).ToList();
+
+            var newAnswers = request.Answers.Except(cuurentAnswers).ToList();
+
+            newAnswers.ForEach(answer =>
+            {
+                question.Answers.Add(new Answer
+                {
+                    Content = answer
+                });
+            });
+
+            question.Answers.ToList().ForEach(answer =>
+            {
+                answer.IsActive = request.Answers.Contains(answer.Content);
+            });
+                
+            await _context.SaveChangesAsync(cancellationToken);
+            return Result.Success();
+        }
     }
 }

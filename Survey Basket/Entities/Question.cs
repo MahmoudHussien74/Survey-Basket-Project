@@ -7,6 +7,7 @@
         public int PollId { get; set; }
         public bool IsActive { get; set; } = true;
         public Poll Poll { get; set; }
+
         public ICollection<Answer> Answers { get; set; } = [];
     }
 }

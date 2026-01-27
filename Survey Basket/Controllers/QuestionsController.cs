@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Survey_Basket.Abstractions;
 using Survey_Basket.Contracts.Questions;
-using Survey_Basket.Errors.Questions;
 
 namespace Survey_Basket.Controllers
 {
@@ -45,6 +42,20 @@ namespace Survey_Basket.Controllers
 
             return result.ToProblem();
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update([FromRoute]int pollId,[FromRoute]int id, [FromBody]QuestionRequest request,CancellationToken cancellationToken)
+        {
+            var result = await _questionService.UpdateAsync(pollId, id, request, cancellationToken);
+
+            if (result.IsSuccess)
+                return NoContent();
+
+            return result.ToProblem();
+        }
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> ToggleStatus([FromRoute]int PollId,[FromBody]int id,CancellationToken cancellationToken)
         {
