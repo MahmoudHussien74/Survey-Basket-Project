@@ -7,6 +7,7 @@ namespace Survey_Basket.Services
     {
         Task<Result<QuestionResponse>>AddAsync(int PollId,QuestionRequest request,CancellationToken CancellationToken=default);
         Task<Result<List<QuestionResponse>>>GetAllAsync(int PollId, CancellationToken CancellationToken=default);
+        Task<Result<IEnumerable<QuestionResponse>>> GetAvilableAsync(int PollId, string userId, CancellationToken CancellationToken = default);
         Task<Result<QuestionResponse>>GetAsync(int PollId,int id, CancellationToken CancellationToken=default);
         Task<Result> ToggleStatusAsync(int PollId,int id, CancellationToken CancellationToken=default);
 

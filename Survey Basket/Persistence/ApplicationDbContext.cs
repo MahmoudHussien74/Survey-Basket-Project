@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Survey_Basket.Extentions;
 
 namespace Survey_Basket.Persistence
 {
@@ -9,6 +10,8 @@ namespace Survey_Basket.Persistence
         public DbSet<Answer> Answers {  get; set; }
         public DbSet<Poll> Polls {  get; set; }
         public DbSet<Question>  Questions {  get; set; }
+        public DbSet<Vote>   Votes {  get; set; }
+        public DbSet<VoteAnswer>  VoteAnswers {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,7 +31,7 @@ namespace Survey_Basket.Persistence
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
-            var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var currentUserId = _httpContextAccessor.HttpContext?.User.GetUserId();
             var Entries = ChangeTracker.Entries<AuditableEntity>();
 
             foreach (var entityEntry in Entries)

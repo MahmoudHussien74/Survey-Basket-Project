@@ -4,6 +4,7 @@ using Survey_Basket.Contracts.Questions;
 using Survey_Basket.Entities;
 using Survey_Basket.Errors.Polls;
 using Survey_Basket.Errors.Questions;
+using Survey_Basket.Errors.Votes;
 
 namespace Survey_Basket.Services
 {
@@ -60,6 +61,32 @@ namespace Survey_Basket.Services
                         
         }
 
+        public async Task<Result<IEnumerable<QuestionResponse>>> GetAvilableAsync(int PollId,string userId, CancellationToken CancellationToken = default)
+        {
+            var hasVote = await _context.Votes.AnyAsync(x => x.PollId == PollId && x.UserId == userId, cancellationToken: CancellationToken);
+
+            if (hasVote)
+                return Result.Failure<IEnumerable<QuestionResponse>>(VoteErrors.DuplicateVote);
+
+            var pollIsExsist = await _context.Polls.AnyAsync(x =>x.Id == PollId && x.IsPublished && x.StartsAt <= DateOnly.FromDateTime(DateTime.UtcNow) && x.EndsAt >= DateOnly.FromDateTime(DateTime.UtcNow), cancellationToken: CancellationToken);
+
+            if(!pollIsExsist)
+                return Result.Failure<IEnumerable<QuestionResponse>>(PollErrors.Notfound);
+
+            var questions = await _context.Questions
+                                          .Where(x => x.PollId == PollId && x.IsActive)
+                                          .Include(x=>x.Answers)
+                                          .Select(x=> new QuestionResponse(
+                                              x.Id,
+                                              x.Content,
+                                              x.Answers
+                                              .Where(x=>x.IsActive).Select(answer =>new AnswerResponse(answer.Id,answer.Content))
+                                          ))
+                                          .AsNoTracking()
+                                          .ToListAsync(CancellationToken);
+
+            return Result.Success<IEnumerable<QuestionResponse>>(questions);
+        }
         public async Task<Result<QuestionResponse>> GetAsync(int PollId, int id, CancellationToken CancellationToken = default)
         {
            var pollIsExsist =  _context.Polls.AnyAsync(x => x.Id == PollId, cancellationToken: CancellationToken);

@@ -1,6 +1,5 @@
 ﻿using Survey_Basket.Abstractions;
 using Survey_Basket.Errors.Polls;
-
 namespace Survey_Basket.Services
 {
     public class PollService(ApplicationDbContext context) : IPollService
@@ -13,9 +12,12 @@ namespace Survey_Basket.Services
             .AsNoTracking()
             .ToListAsync(cancellationToken);
 
-
-
-
+        public async Task<IEnumerable<PollResponse>> GetCurrentAsync(CancellationToken cancellationToken)=>
+                await _context.Polls
+                .Where(x=> x.IsPublished && x.StartsAt <= DateOnly.FromDateTime(DateTime.UtcNow) && x.EndsAt >= DateOnly.FromDateTime(DateTime.UtcNow))
+                .ProjectToType<PollResponse>()
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
 
         public async Task<Result<PollResponse>> GetAsync(int id, CancellationToken cancellationToken)
         {

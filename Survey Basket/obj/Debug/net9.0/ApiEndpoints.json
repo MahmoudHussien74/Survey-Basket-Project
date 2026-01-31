@@ -153,6 +153,127 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Survey_Basket.Controllers.QuestionsController",
+    "Method": "Update",
+    "RelativePath": "api/polls/{PollId}/Questions/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Survey_Basket.Contracts.Questions.QuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.ResultsController",
+    "Method": "PollVotes",
+    "RelativePath": "api/polls/{pollId}/Results/row-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.ResultsController",
+    "Method": "VotesPerDay",
+    "RelativePath": "api/polls/{pollId}/Results/votes-per-day",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.ResultsController",
+    "Method": "VotesPerQuestion",
+    "RelativePath": "api/polls/{pollId}/Results/votes-per-question",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.VotesController",
+    "Method": "Start",
+    "RelativePath": "api/polls/{pollId}/vote",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.VotesController",
+    "Method": "Vote",
+    "RelativePath": "api/polls/{pollId}/vote",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Survey_Basket.Contracts.Votes.VoteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.PollsController",
+    "Method": "GetCurrentAll",
+    "RelativePath": "api/Polls/current",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Survey_Basket.Controllers.AuthController",
     "Method": "LoginAsync",
     "RelativePath": "Auth",
@@ -195,6 +316,32 @@
       {
         "Name": "request",
         "Type": "Survey_Basket.Contracts.Authentication.RefreshTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.QuestionsController",
+    "Method": "ToggleStatus",
+    "RelativePath": "toggle/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PollId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
         "IsRequired": true
       }
     ],

@@ -17,6 +17,14 @@ namespace Survey_Basket.Controllers
 
             return Ok(polls);
         }
+
+        [HttpGet("current")]
+        public async Task<IActionResult> GetCurrentAll(CancellationToken cancellationToken)
+        {
+            var polls = await _pollService.GetCurrentAsync(cancellationToken);
+
+            return Ok(polls);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] int id, CancellationToken cancellationToken)
         {

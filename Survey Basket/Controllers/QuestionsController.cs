@@ -56,7 +56,7 @@ namespace Survey_Basket.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("/toggle/{id}")]
         public async Task<IActionResult> ToggleStatus([FromRoute]int PollId,[FromBody]int id,CancellationToken cancellationToken)
         {
             var result = await _questionService.ToggleStatusAsync(PollId, id,cancellationToken);
