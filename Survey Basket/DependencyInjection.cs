@@ -1,4 +1,6 @@
-﻿namespace Survey_Basket
+﻿using Survey_Basket.Authentication.Filters;
+
+namespace Survey_Basket
 {
     public static class DependencyInjection
     {
@@ -26,6 +28,7 @@
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IResultService, ResultService>();
+            services.AddScoped<IRoleService, RoleService>();
             return services;
         }
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
@@ -52,11 +55,12 @@
         }
         public static IServiceCollection AddAuthConfiguration(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddSingleton<IJwtProvider, JwtProvider>();
-
+            services.AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>();
+            services.AddTransient<IAuthorizationPolicyProvider , PermissionAuthorizationPolicyProvider>();
             //  services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
 
             services.AddOptions<JwtOptions>()

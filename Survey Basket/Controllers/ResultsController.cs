@@ -1,42 +1,38 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Survey_Basket.Abstractions;
+﻿namespace Survey_Basket.Controllers;
 
-namespace Survey_Basket.Controllers
+[Route("api/polls/{pollId}/[controller]")]
+[ApiController]
+[Authorize]
+public class ResultsController(IResultService resultService) : ControllerBase
 {
-    [Route("api/polls/{pollId}/[controller]")]
-    [ApiController]
-    [Authorize]
-    public class ResultsController(IResultService resultService) : ControllerBase
+    private readonly IResultService _resultService = resultService;
+
+
+    [HttpGet("row-data")]
+
+    public async Task<IActionResult> PollVotes([FromRoute] int pollId,CancellationToken cancellationToken)
     {
-        private readonly IResultService _resultService = resultService;
+        var result = await _resultService.getPollVotesAsync(pollId, cancellationToken);
 
 
-        [HttpGet("row-data")]
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+    [HttpGet("votes-per-day")]
 
-        public async Task<IActionResult> PollVotes([FromRoute] int pollId,CancellationToken cancellationToken)
-        {
-            var result = await _resultService.getPollVotesAsync(pollId, cancellationToken);
-
-
-            return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
-        }
-        [HttpGet("votes-per-day")]
-
-        public async Task<IActionResult> VotesPerDay([FromRoute] int pollId,CancellationToken cancellationToken)
-        {
-            var result = await _resultService.GetVotesPerDayAsync(pollId, cancellationToken);
+    public async Task<IActionResult> VotesPerDay([FromRoute] int pollId,CancellationToken cancellationToken)
+    {
+        var result = await _resultService.GetVotesPerDayAsync(pollId, cancellationToken);
 
 
-            return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
-        }
-        [HttpGet("votes-per-question")]
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+    [HttpGet("votes-per-question")]
 
-        public async Task<IActionResult> VotesPerQuestion([FromRoute] int pollId,CancellationToken cancellationToken)
-        {
-            var result = await _resultService.GetVotesPerQuestionAsync(pollId, cancellationToken);
+    public async Task<IActionResult> VotesPerQuestion([FromRoute] int pollId,CancellationToken cancellationToken)
+    {
+        var result = await _resultService.GetVotesPerQuestionAsync(pollId, cancellationToken);
 
 
-            return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
-        }
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Survey_Basket.Extentions;
 
 namespace Survey_Basket.Persistence
 {
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IHttpContextAccessor httpContextAccessor) : IdentityDbContext(options)
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IHttpContextAccessor httpContextAccessor) :
+        IdentityDbContext<User,ApplicationRole,string>(options)
     {
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
 
@@ -12,6 +14,8 @@ namespace Survey_Basket.Persistence
         public DbSet<Question>  Questions {  get; set; }
         public DbSet<Vote>   Votes {  get; set; }
         public DbSet<VoteAnswer>  VoteAnswers {  get; set; }
+
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +28,7 @@ namespace Survey_Basket.Persistence
 
             foreach (var fk in cascadeFK)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
+
 
 
             base.OnModelCreating(modelBuilder);

@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\services\\iresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\services\\iresultservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\services\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\services\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\errors\\roles\\roleerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\errors\\roles\\roleerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\contracts\\roles\\rolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\contracts\\roles\\rolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|d:\\asp.net\\asp.net_api\\survey basket\\survey basket\\contracts\\roles\\rolerequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F33D4D80-64B1-413E-A383-E0597AE99515}|Survey Basket\\Survey Basket.csproj|solutionrelative:survey basket\\contracts\\roles\\rolerequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResultsController.cs",
-              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\ResultsController.cs",
-              "RelativeDocumentMoniker": "Survey Basket\\Controllers\\ResultsController.cs",
-              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\ResultsController.cs",
-              "RelativeToolTip": "Survey Basket\\Controllers\\ResultsController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwB8AAAAnAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IRoleService.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Services\\IRoleService.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IRoleService.cs",
+              "RelativeToolTip": "Survey Basket\\Services\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T02:37:43.098Z",
+              "WhenOpened": "2026-02-21T15:34:52.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IResultService.cs",
-              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IResultService.cs",
-              "RelativeDocumentMoniker": "Survey Basket\\Services\\IResultService.cs",
-              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\IResultService.cs",
-              "RelativeToolTip": "Survey Basket\\Services\\IResultService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACXAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Controllers\\RolesController.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "Survey Basket\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T02:37:22.642Z",
+              "WhenOpened": "2026-02-21T15:33:02.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoleError.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Errors\\Roles\\RoleError.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Errors\\Roles\\RoleError.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Errors\\Roles\\RoleError.cs",
+              "RelativeToolTip": "Survey Basket\\Errors\\Roles\\RoleError.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAcAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T15:18:36.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Services\\RoleService.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Services\\RoleService.cs",
+              "RelativeToolTip": "Survey Basket\\Services\\RoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T15:16:49.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoleRequestValidator.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Contracts\\Roles\\RoleRequestValidator.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Contracts\\Roles\\RoleRequestValidator.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Contracts\\Roles\\RoleRequestValidator.cs",
+              "RelativeToolTip": "Survey Basket\\Contracts\\Roles\\RoleRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T15:13:21.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoleRequest.cs",
+              "DocumentMoniker": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Contracts\\Roles\\RoleRequest.cs",
+              "RelativeDocumentMoniker": "Survey Basket\\Contracts\\Roles\\RoleRequest.cs",
+              "ToolTip": "D:\\Asp.Net\\Asp.Net_Api\\Survey Basket\\Survey Basket\\Contracts\\Roles\\RoleRequest.cs",
+              "RelativeToolTip": "Survey Basket\\Contracts\\Roles\\RoleRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T15:13:21.054Z",
               "EditorCaption": ""
             }
           ]
