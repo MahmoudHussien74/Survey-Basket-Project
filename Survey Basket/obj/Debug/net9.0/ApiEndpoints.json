@@ -353,6 +353,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Survey_Basket.Controllers.RolesController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Survey_Basket.Contracts.Roles.RoleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Survey_Basket.Controllers.RolesController",
+    "Method": "ToggleStatusAsync",
+    "RelativePath": "api/Roles/{id}/toggle-status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Survey_Basket.Controllers.AuthController",
     "Method": "LoginAsync",
     "RelativePath": "Auth",

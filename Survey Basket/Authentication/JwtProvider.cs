@@ -5,7 +5,7 @@ namespace Survey_Basket.Authentication
     public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
     {
         private readonly JwtOptions _options = options.Value;
-        public (string token, int expiresIn) GenerateToken(User user, IEnumerable<string> roles, IEnumerable<string> permissions)
+        public (string token, int expiresIn) GenerateToken(User user, IEnumerable<string> roles, IEnumerable<string> permission)
         {
             Claim[] claims = [
               new(JwtRegisteredClaimNames.Sub,user.Id),
@@ -14,7 +14,7 @@ namespace Survey_Basket.Authentication
               new(JwtRegisteredClaimNames.FamilyName,user.LastName),
               new(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
               new(nameof(roles),JsonSerializer.Serialize(roles),JsonClaimValueTypes.JsonArray),
-              new(nameof(permissions),JsonSerializer.Serialize(permissions),JsonClaimValueTypes.JsonArray),
+              new(nameof(permission),JsonSerializer.Serialize(permission),JsonClaimValueTypes.JsonArray),
             ];
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);

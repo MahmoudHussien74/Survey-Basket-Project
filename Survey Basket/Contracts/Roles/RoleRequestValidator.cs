@@ -1,5 +1,4 @@
 ﻿namespace Survey_Basket.Contracts.Roles;
-
 public class RoleRequestValidator:AbstractValidator<RoleRequest>
 {
     public RoleRequestValidator()
