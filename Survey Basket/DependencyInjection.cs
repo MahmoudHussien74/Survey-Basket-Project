@@ -1,4 +1,6 @@
-﻿using Survey_Basket.Authentication.Filters;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using Survey_Basket.Authentication.Filters;
+using System.Threading.RateLimiting;
 
 namespace Survey_Basket
 {
@@ -19,22 +21,94 @@ namespace Survey_Basket
             });
 
             services.AddAuthConfiguration(configuration);
-            services.AddScoped<IAuthService,AuthService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             services.AddFluentValidationConfiguration()
-                    .AddMapsterConfiguration();
-            
+                    .AddMapsterConfiguration()
+                    .AddRateLimiterServices();
+
             services.AddScoped<IPollService, PollService>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IResultService, ResultService>();
             services.AddScoped<IRoleService, RoleService>();
+            
             return services;
         }
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
         {
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            return services;
+        }
+        public static IServiceCollection AddRateLimiterServices(this IServiceCollection services)
+        {
+            services.AddRateLimiter(rateLimiterOptions =>
+            {
+
+                rateLimiterOptions.AddPolicy("ipLimiter", httpContext =>
+                {
+                   return RateLimitPartition.GetFixedWindowLimiter(
+                          partitionKey: httpContext.Connection.RemoteIpAddress?.ToString(),
+                          factory:_ => new FixedWindowRateLimiterOptions
+                          {
+                              PermitLimit = 2,
+                              Window = TimeSpan.FromSeconds(20),
+                          }
+                        );
+                });
+                rateLimiterOptions.AddPolicy("userLimiter", httpContext =>
+                {
+                   return RateLimitPartition.GetFixedWindowLimiter(
+                          partitionKey: httpContext.User.GetUserId(),
+                          factory:_ => new FixedWindowRateLimiterOptions
+                          {
+                              PermitLimit = 2,
+                              Window = TimeSpan.FromSeconds(20),
+                          }
+                        );
+                });
+
+                rateLimiterOptions.AddConcurrencyLimiter("concurrency", option =>
+                {
+                    option.PermitLimit = 1000;
+                    option.QueueLimit = 100;
+                    option.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+                });
+            });
+
+
+            //rateLimiterOption.AddTokenBucketLimiter("tokenBucket", option =>
+            //{
+            //    option.TokenLimit = 2;
+            //    option.QueueLimit = 1;
+            //    option.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+            //    option.ReplenishmentPeriod = TimeSpan.FromSeconds(10);
+            //    option.TokensPerPeriod = 2;
+            //    option.AutoReplenishment = true;
+
+            //});
+
+            //rateLimiterOption.AddFixedWindowLimiter("fixedWindow", option =>
+            //{
+            //    option.PermitLimit = 2;
+            //    option.QueueLimit = 1;
+            //    option.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+            //    option.Window = TimeSpan.FromSeconds(20);
+
+            //});
+
+            //rateLimiterOption.AddSlidingWindowLimiter("slidingWindow", option =>
+            //{
+            //    option.PermitLimit = 2;
+            //    option.QueueLimit = 1;
+            //    option.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+            //    option.Window = TimeSpan.FromSeconds(20);
+            //    option.SegmentsPerWindow = 2;
+
+            //});
+
+
             return services;
         }
 

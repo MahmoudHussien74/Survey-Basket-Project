@@ -20,6 +20,9 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseRateLimiter();
+
         app.UseHttpsRedirection();
 
         app.UseAuthorization();

@@ -1,7 +1,10 @@
-﻿namespace Survey_Basket.Controllers;
+﻿using Microsoft.AspNetCore.RateLimiting;
+
+namespace Survey_Basket.Controllers;
 
 [Route("[controller]")]
 [ApiController]
+[EnableRateLimiting("ipLimiter")]
 public class AuthController(IAuthService authService) : ControllerBase
 {
     private readonly IAuthService _authService = authService;
