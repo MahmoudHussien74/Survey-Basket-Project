@@ -1,3 +1,5 @@
+using Serilog;
+
 namespace Survey_Basket;
 public class Program
 {
@@ -12,8 +14,19 @@ public class Program
 
         builder.Services.AddExceptionHandler<ExceptionHandler>();
         builder.Services.AddProblemDetails();
+
+
+        builder.Host.UseSerilog((context, configuration) =>
+           configuration.ReadFrom.Configuration(context.Configuration)
+        );
+        
+        
+        
+           
+
         var app = builder.Build();
 
+        app.UseSerilogRequestLogging();
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
