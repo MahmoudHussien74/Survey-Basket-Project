@@ -1,3 +1,5 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
 
 namespace Survey_Basket;
@@ -19,10 +21,8 @@ public class Program
         builder.Host.UseSerilog((context, configuration) =>
            configuration.ReadFrom.Configuration(context.Configuration)
         );
-        
-        
-        
-           
+
+
 
         var app = builder.Build();
 
@@ -44,6 +44,13 @@ public class Program
         app.MapControllers();
 
         app.UseExceptionHandler();
+
+        app.MapHealthChecks("health", new HealthCheckOptions
+        {
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+      
+       
 
         app.Run();
     }

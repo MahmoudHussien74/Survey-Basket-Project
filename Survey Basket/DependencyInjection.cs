@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.RateLimiting;
+﻿using HealthChecks.SqlServer;
+using Microsoft.AspNetCore.RateLimiting;
 using Survey_Basket.Authentication.Filters;
 using System.Threading.RateLimiting;
 
@@ -9,6 +10,8 @@ namespace Survey_Basket
         public static IServiceCollection AddDependencies(this IServiceCollection services,
             IConfiguration configuration)
         {
+          
+
             services.AddControllers();
             services.AddSwaggerServices();
 
@@ -32,7 +35,9 @@ namespace Survey_Basket
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IResultService, ResultService>();
             services.AddScoped<IRoleService, RoleService>();
-            
+
+            services.AddHealthChecks()
+                .AddSqlServer(name: "Data Base", connectionString: connectionString);
             return services;
         }
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
