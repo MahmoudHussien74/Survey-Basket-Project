@@ -15,6 +15,9 @@ namespace Survey_Basket
             services.AddControllers();
             services.AddSwaggerServices();
 
+            services.AddHybridCache();
+
+
             var connectionString = configuration.GetConnectionString("DefaultConnection")
              ?? throw new InvalidOperationException("Connection String 'DefaultConnection' Not found");
 

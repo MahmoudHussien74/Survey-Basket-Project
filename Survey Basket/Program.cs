@@ -9,19 +9,14 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-
-
         builder.Services.AddDependencies(builder.Configuration);
-
 
         builder.Services.AddExceptionHandler<ExceptionHandler>();
         builder.Services.AddProblemDetails();
 
-
         builder.Host.UseSerilog((context, configuration) =>
            configuration.ReadFrom.Configuration(context.Configuration)
         );
-
 
 
         var app = builder.Build();
@@ -50,8 +45,6 @@ public class Program
             ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
         });
       
-       
-
         app.Run();
     }
 }

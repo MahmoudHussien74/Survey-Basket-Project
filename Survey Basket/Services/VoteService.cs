@@ -11,7 +11,7 @@ namespace Survey_Basket.Services
 
         public async Task<Result> AddAsync(int pollId, string userId, VoteRequest request, CancellationToken cancellationToken = default)
         {
-            var hasVote = await _context.Votes.AnyAsync(x => x.PollId == pollId && x.UserId == userId );
+            var hasVote = await _context.Votes.AnyAsync(x => x.PollId == pollId && x.UserId == userId, cancellationToken: cancellationToken);
 
             if (hasVote)
                 return Result.Failure(VoteErrors.DuplicateVote);

@@ -4,7 +4,7 @@ using Survey_Basket.Abstractions.Const;
 namespace Survey_Basket.Controllers;
 [Route("api/polls/{pollId}/vote")]
 [ApiController]
-[Authorize(Roles =DefultRoles.Member)]
+[Authorize(Roles = DefultRoles.Admin)]
 [EnableRateLimiting("concurrency")]
 public class VotesController(IQuestionService questionService,IVoteService voteService) : ControllerBase
 {
