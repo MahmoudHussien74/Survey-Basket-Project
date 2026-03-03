@@ -1,14 +1,14 @@
-﻿using Survey_Basket.Contracts.Questions;
+﻿namespace Survey_Basket.Mapping;
 
-namespace Survey_Basket.Mapping
+public class MappingConfiguration : IRegister
 {
-    public class MappingConfiguration : IRegister
+    public void Register(TypeAdapterConfig config)
     {
-        public void Register(TypeAdapterConfig config)
-        {
-         
-            config.NewConfig<QuestionRequest, Question>()
-                  .Ignore(nameof(Question.Answers));
-        }
+     
+        config.NewConfig<QuestionRequest, Question>()
+              .Ignore(nameof(Question.Answers));
+
+        //config.NewConfig<RegisterRequest, User>()
+        //     .Map(dest => dest.UserName, src => src.Email);
     }
 }
