@@ -219,13 +219,67 @@ public class AuthService(UserManager<User> userManager
         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-        _logger.LogInformation("Confirmation code : {code}", code);
+        _logger.LogInformation(message: "Confirmation code : {code}", code);
 
         await SendConfirmationEmail(user, code);
 
         return Result.Success();
     }
+    public async Task<Result> SendResetPasswordCode(string email)
+    {
+        if (await _userManager.FindByEmailAsync(email) is not { } user)
+            return Result.Success();
 
+        if (!user.EmailConfirmed)
+            return Result.Failure(UserError.EmailNotConfirmed);
+
+        var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+        _logger.LogInformation(message: "Reset code : {code}", code);
+
+        await SendResetPasswordCodeAsync(user,code);
+
+        return Result.Success();
+    }
+    public async Task<Result> ResetPasswordAsync(ResetPasswordRequest request)
+    {
+        var user = await _userManager.FindByEmailAsync(request.Email);
+
+        if (user is null || !user.EmailConfirmed )
+            return Result.Failure(UserError.InvalidCode);
+
+        IdentityResult result;
+
+        try
+        {
+            var code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(request.Code));
+
+            result = await _userManager.ResetPasswordAsync(user, code,request.NewPassword);
+
+
+        }
+        catch (FormatException)
+        {
+            result = IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken());
+        }
+        if(result.Succeeded)
+            return Result.Success();
+
+        var error = result.Errors.First();
+        return Result.Failure(new Error(error.Code, error.Description, StatusCodes.Status401Unauthorized));
+    }
+    private async Task SendResetPasswordCodeAsync(User user,string code)
+    {
+        var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;
+        
+        var emailBody = EmailBodyBuilder.GenerateEmailBody("ForgetPassword",
+             new Dictionary<string, string>
+            {
+                    {"{{name}}",user.FirstName },
+                    {"{{action_url}}",$"{origin}/auth/forgetPassword?email={user.Email}&code={code}"}
+            });
+    }
     private async Task SendConfirmationEmail(User user,string code)
     {
         var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;

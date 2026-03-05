@@ -40,6 +40,7 @@ public static class DependencyInjection
         services.AddScoped<IResultService, ResultService>();
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<IEmailSender, EmailService>();
+        services.AddScoped<IUserService, UserService>();
 
         services.AddHttpContextAccessor();
 

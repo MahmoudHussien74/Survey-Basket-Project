@@ -1,4 +1,6 @@
-﻿namespace Survey_Basket.Mapping;
+﻿using Survey_Basket.Contracts.Users;
+
+namespace Survey_Basket.Mapping;
 
 public class MappingConfiguration : IRegister
 {
@@ -8,7 +10,6 @@ public class MappingConfiguration : IRegister
         config.NewConfig<QuestionRequest, Question>()
               .Ignore(nameof(Question.Answers));
 
-        //config.NewConfig<RegisterRequest, User>()
-        //     .Map(dest => dest.UserName, src => src.Email);
+        config.NewConfig<UserProfileResponse,User>();
     }
 }

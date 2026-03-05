@@ -27,8 +27,6 @@ public static class UserError
 
     public static readonly Error DuplicatedConfirmation =
         new("User.DuplicatedConfirmation", "Email already confirmed", StatusCodes.Status400BadRequest);
-
-
-
-
+    public static readonly Error NotFound =
+        new("User.NotFound", "User Not Found", StatusCodes.Status404NotFound);
 }
