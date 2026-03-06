@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.Extensions.Options;
 using Survey_Basket.Authentication.Filters;
 using Survey_Basket.Settings;
 using System.Threading.RateLimiting;
@@ -183,11 +184,14 @@ public static class DependencyInjection
            };
        });
 
-        services.Configure<IdentityOptions>(option =>
+        services.Configure<IdentityOptions>(options =>
         {
-            option.Password.RequiredLength = 8 ;
-            option.SignIn.RequireConfirmedEmail=true;
-            option.User.RequireUniqueEmail =true;
+            options.Password.RequiredLength = 8 ;
+            options.SignIn.RequireConfirmedEmail=true;
+            options.User.RequireUniqueEmail =true;
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            options.Lockout.MaxFailedAccessAttempts = 5;
+            options.Lockout.AllowedForNewUsers = true;
         });
 
         return services;

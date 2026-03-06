@@ -2,13 +2,20 @@
 
 namespace Survey_Basket.Errors.User;
 
-public static class UserError
+public static class UserErrors
 {
+
+    public static readonly Error InvalidRole=
+   new("Role.InvalidRole", "Invalid Role", StatusCodes.Status400BadRequest);
+
+
     public static readonly Error InvalidCredentials =
      new("User.InvalidCredentials", "Invalid email/password", StatusCodes.Status401Unauthorized);
 
     public static readonly Error DisabledUser =
         new("User.DisabledUser", "Disabled user, please contact your administrator", StatusCodes.Status401Unauthorized);
+    public static readonly Error LockedUser =
+        new("User.LockedUser", "Locked user, please contact your administrator", StatusCodes.Status401Unauthorized);
 
     public static readonly Error InvalidJwtToken =
         new("User.InvalidJwtToken", "Invalid JWT token", StatusCodes.Status401Unauthorized);
@@ -27,6 +34,6 @@ public static class UserError
 
     public static readonly Error DuplicatedConfirmation =
         new("User.DuplicatedConfirmation", "Email already confirmed", StatusCodes.Status400BadRequest);
-    public static readonly Error NotFound =
+    public static readonly Error UserNotFound =
         new("User.NotFound", "User Not Found", StatusCodes.Status404NotFound);
 }
