@@ -9,5 +9,8 @@ public interface IUserService
     Task<Result<UserResponse>> GetAsync(string id);
     Task<Result<UserResponse>> AddAsync(CreateUserRequest request, CancellationToken cancellationToken);
     Task<Result> UpdateAsync(string id, UpdateUserRequest request, CancellationToken cancellationToken);
+    Task<Result> ToggleStatus(string id);
+    Task<Result> Unlock(string id);
+
 
 }
